@@ -9,7 +9,18 @@ set :repo_url, 'git@github.com:pityara/todayilearned.git'
 append :linked_files, "config/database.yml"
 append :linked_files, "config/secrets.yml"
 append :linked_files, "config/puma.rb"
+before "deploy:assets:precompile", "deploy:yarn_install"
 
+namespace :deploy do
+  desc 'Run rake yarn:install'
+  task :yarn_install do
+    on roles(:web) do
+      within release_path do
+        execute("cd #{release_path} && yarn install")
+      end
+    end
+  end
+end
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
