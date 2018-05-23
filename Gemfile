@@ -36,11 +36,6 @@ group :development do
   gem 'capistrano-rvm'
   gem 'capistrano3-puma', github: 'seuros/capistrano-puma'
   gem 'capistrano-bundler'
-  gem 'capistrano-rails-console'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-group :production do
-  gem 'unicorn', '>= 5.1.0'
-end
