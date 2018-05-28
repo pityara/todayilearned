@@ -1,12 +1,16 @@
 language: ruby
 rvm:
-  - 2.5.0
+- 2.5.0
 services:
-    - postgresql
+- postgresql
 addons:
-    postgresql: '9.6'
+  postgresql: '9.6'
 before_script:
-  - psql -c 'create database todayilearned_test;' -U postgres
+- psql -c 'create database todayilearned_test;' -U postgres
 after_success:
-  - "openssl aes-256-cbc -k $DEPLOY_KEY -in config/deploy_id_rsa_enc_travis -d -a -out config/deploy_id_rsa"
-  - "bundle exec cap production deploy"
+- openssl aes-256-cbc -k $DEPLOY_KEY -in config/deploy_id_rsa_enc_travis -d -a -out
+  config/deploy_id_rsa
+- bundle exec cap production deploy
+env:
+  global:
+    secure: LOXX9q+9vMVQklsuh7dSG3G2NRVW3OO03khY1whIetJorqJEmYL3k9D9kq17j7Nk4FzvJUu6tjt8jSpkdEPtFdVlPfQCxHg7XySJlvw+038g3UKshcWZOzNxab0rKEIVDCWrZEVyTxQ2giVUS2CdUBj1a8WGCXfqb6GOds6KQyULEb0mz0SjanQtVEhbd5CKJyJB91NCjDqULez2W5lbw/DfUtss+pZ0s16yDOjlfj27SRgoZInBKNCEuGKR/HEmkfhIBPyQ3rdwJLL6eVc6zmDP7KpeNol37Ulj+b99Ky4eG1zOpzxoKroOvEvvOwLXNMiD1pYaPQcLTEwSCI3i/DAt7IhW5L2kSCwNkmk+G/4ldBP4PQ0rHLv9S2tiRjZq/4BNteKlat7kMSqr0xPR75ZoemTwHkwny9qhFGptOYN+LXK4LAN0sjpjdKEHYH/pgIHaCFvqQiIV4tN2eK7X4yztpbNV+WYYu1U7nlIBvrTG2MWVL3YJRmSFnrSO3m5LxCKVtsVMHfGFlP6bpDPgfqYBHuBOMJyDh1azyzLrp1YrjMmh9jYa4Zq2u+SfKbM3N4QUwBn0esRElEQCwt5oWzMEjl4RTsljySF+TatpcqlyRBozBGZ6BHEQjDQxJS7PKGuQwKzQirMF9aA2DOK+m7mxDvYHVdsT6x+L3gW2tHA=
