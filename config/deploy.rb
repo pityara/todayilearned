@@ -5,6 +5,7 @@ set :application, "todayilearned"
 set :user, "egor"
 set :deploy_to, "/home/egor/todayilearned"
 server '46.101.3.50', user: 'egor', roles: %w{app db web}, port: 23003, primary: true
+set :ssh_options, keys: ["config/deploy_id_rsa"] if File.exists?("config/deploy_id_rsa")
 set :repo_url, 'git@github.com:pityara/todayilearned.git'
 set :puma_thread, [4, 16]
 set :puma_workers, 0
