@@ -5,10 +5,12 @@ default: &default
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: todayilearned_development
+  username: postgres
 
 test:
   <<: *default
+  username: postgres
   database: todayilearned_test
 
 production:
