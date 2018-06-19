@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eaf1203c-85a4-49b2-bef6-ed89acb81404" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/javascript/packs/components/LogInOut.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/actions/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/actions/actionTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/actions/sessionActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/actions/sessionActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/components/Bar.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/components/Bar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/components/LogInForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/components/LogInForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/containers/LogIn.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/containers/LogIn.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/containers/ToolBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/containers/ToolBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/reducers/initialState.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/reducers/initialState.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/reducers/sessionReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/reducers/sessionReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/.#webpacker.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/webpacker.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/webpacker.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="eaf1203c-85a4-49b2-bef6-ed89acb81404" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -368,12 +350,12 @@
       <updated>1529265174847</updated>
       <workItem from="1529265175982" duration="1054000" />
       <workItem from="1529349948079" duration="1447000" />
-      <workItem from="1529351426738" duration="18019000" />
+      <workItem from="1529351426738" duration="18121000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20520000" />
+    <option name="totallyTimeSpent" value="20622000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
