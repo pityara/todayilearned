@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from '@blueprintjs/core';
 
 const LogInForm = ({ submitAction }) => {
   let _name, _password;
@@ -11,12 +12,14 @@ const LogInForm = ({ submitAction }) => {
       <input
         type="text"
         ref={(input) => _name = input}
-        placeholder="Введите имя"/>
+        placeholder="Введите имя"
+        className="pt-input"/>
       <input
         type="password"
         ref={(input) => _password = input}
-        placeholder="Вводите пароль" />
-      <input type="submit" />
+        placeholder="Вводите пароль"
+        className="pt-input"/>
+      <Button type="submit">Log In</Button>
     </form>
   );
 }

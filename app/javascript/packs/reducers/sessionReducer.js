@@ -1,5 +1,5 @@
 import initialState from './initialState';
-import { GET_TOKEN, LOG_IN_SUCCESS, LOG_OUT } from '../actions/actionTypes';
+import { GET_TOKEN, LOG_IN_SUCCESS, LOG_OUT, LOG_IN_ERROR } from '../actions/actionTypes';
 
 export default function sessionReducer(state=initialState, action) {
   switch (action.type) {
@@ -12,6 +12,16 @@ export default function sessionReducer(state=initialState, action) {
       return {
         ...state,
         logged_in: true,
+        session_token: action.payload.token,
+      };
+    case LOG_IN_ERROR:
+      return {
+        ...state,
+        logged_in: false,
+        error: {
+          status: true,
+          message: action.error.message,
+        },
       };
     case LOG_OUT:
       return {

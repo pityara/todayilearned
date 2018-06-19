@@ -1,31 +1,43 @@
 import fetch from 'isomorphic-fetch';
-import {GET_TOKEN, LOG_IN_SUCCESS, LOG_OUT} from './actionTypes';
+import { LOG_IN_ERROR, LOG_IN_SUCCESS, LOG_OUT } from './actionTypes';
 
-export const loginSuccess = () => {
+export const loginSuccess = (token) => {
   return {
     type: LOG_IN_SUCCESS,
-    payload: {},
-    error: false,
-  };
-};
-
-export const logoutSuccess = () => {
-  return {
-    type: LOG_OUT,
-    payload: {},
-    error: false,
-  };
-};
-
-export const takeToken = (token) => (
-  {
-    type: GET_TOKEN,
     payload: {
       token,
     },
-    error: false,
-  }
-);
+    error: {
+      status: false,
+    },
+  };
+};
+
+export const loginError = (message) => {
+  return {
+    type: LOG_IN_ERROR,
+    payload: {},
+    error: {
+      status: true,
+      message,
+    },
+  };
+};
+
+export const logOutSuccess = () => {
+  return {
+    type: LOG_OUT,
+    payload: {},
+    error: {
+      status: false,
+    },
+  };
+};
+
+export const logOut = () => (dispatch) => {
+  localStorage['auth_token_redux'] = '';
+  dispatch(logOutSuccess());
+};
 
 export const getToken = (email, password) => (dispatch) => {
   let data = new FormData();
@@ -36,7 +48,20 @@ export const getToken = (email, password) => (dispatch) => {
       method: "POST",
       body: data
     })
-    .then((res) =>  res.json())
-    .then((json) => dispatch(takeToken(json["auth_token"])))
+    .then((response) => {
+      if (response.status >= 200 && response.status < 300) {
+        return Promise.resolve(response);
+      } else {
+        const error = new Error(response.statusText || response.status);
+        error.message = response.statusText;
+        return Promise.reject(error);
+      }
+    })
+    .then((res) => res.json())
+    .then((json) => {
+      dispatch(loginSuccess(json.auth_token));
+      localStorage['auth_token_redux'] = json.auth_token;
+    })
+    .catch((error) => dispatch(loginError(error.message)));
 };
 

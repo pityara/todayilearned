@@ -2,16 +2,20 @@
   "name": "todayilearned",
   "private": true,
   "dependencies": {
+    "@blueprintjs/core": "^2.3.1",
     "@rails/webpacker": "3.5",
     "babel-preset-react": "^6.24.1",
+    "caniuse-lite": "^1.0.30000856",
     "isomorphic-fetch": "^2.2.1",
     "prop-types": "^15.6.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-redux": "^4.0.4",
+    "react-transition-group": "^2.3.1",
     "redux": "^3.0.5",
     "redux-devtools-extension": "^2.13.2",
-    "redux-thunk": "^0.1.0"
+    "redux-thunk": "^0.1.0",
+    "webpack": "^4.12.0"
   },
   "devDependencies": {
     "eslint": "^4.9.0",
