@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@blueprintjs/core';
+import { Button, Label } from '@blueprintjs/core';
 
 const LogInForm = ({ submitAction }) => {
   let _name, _password;
@@ -9,20 +9,23 @@ const LogInForm = ({ submitAction }) => {
   };
   return (
     <form onSubmit={submitForm}>
+        <Label text="Username">
       <input
         type="text"
         ref={(input) => _name = input}
-        placeholder="Введите имя"
+        placeholder="Type username"
         className="pt-input"/>
+        </Label>
+        <Label text="Password">
       <input
         type="password"
         ref={(input) => _password = input}
-        placeholder="Вводите пароль"
+        placeholder="Type password"
         className="pt-input"/>
-      <Button type="submit">Log In</Button>
+        </Label>
+      <Button type="submit" icon="key">Log In</Button>
     </form>
   );
 }
 
 export default LogInForm
-
