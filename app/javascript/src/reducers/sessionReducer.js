@@ -13,6 +13,7 @@ export default function sessionReducer(state=initialState, action) {
         ...state,
         logged_in: true,
         session_token: action.payload.token,
+        username: action.payload.username,
       };
     case LOG_IN_ERROR:
       return {

@@ -1,11 +1,12 @@
 import fetch from 'isomorphic-fetch';
 import { LOG_IN_ERROR, LOG_IN_SUCCESS, LOG_OUT } from './actionTypes';
 
-export const loginSuccess = (token) => {
+export const loginSuccess = (token, username) => {
   return {
     type: LOG_IN_SUCCESS,
     payload: {
       token,
+      username
     },
     error: {
       status: false,
@@ -59,7 +60,7 @@ export const getToken = (email, password) => (dispatch) => {
     })
     .then((res) => res.json())
     .then((json) => {
-      dispatch(loginSuccess(json.auth_token));
+      dispatch(loginSuccess(json.auth_token, email));
       localStorage['auth_token_redux'] = json.auth_token;
     })
     .catch((error) => dispatch(loginError(error.message)));

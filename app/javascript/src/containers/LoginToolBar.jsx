@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Bar from '../components/Bar';
+import Bar from '../components/LoginStatus';
 import { logOut }  from '../actions/sessionActions';
 import LogInOut from '../components/LogInOut';
 
-const ToolBar = ({ loggedIn, loginOut }) =>
-  <div className="tool-bar">
-    <Bar loggedIn={loggedIn} />
+const LoginToolBar = ({ loggedIn, loginOut }) =>
+  <span className="login-tool-bar">
     <LogInOut loggedIn={loggedIn} loginOut={loginOut}/>
-  </div>
+  </span>
 
 
 const mapStateToProps = ({ session }) => {
@@ -22,5 +21,5 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(ToolBar);
+)(LoginToolBar);
 
