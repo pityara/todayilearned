@@ -23,13 +23,11 @@
 .byebug_history
 /public/packs
 /public/packs-test
-/node_modules
 yarn-debug.log*
 .yarn-integrity
 
 # Ignore encrypted secrets key file.
 config/secrets.yml.key
 config/database.yml
-/.idea
-
+.idea
 .DS_Store
