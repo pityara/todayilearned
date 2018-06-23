@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Bar from '../components/LoginStatus';
 import { logOut }  from '../actions/sessionActions';
 import LogInOut from '../components/LogInOut';
 
@@ -11,11 +10,11 @@ const LoginToolBar = ({ loggedIn, loginOut }) =>
 
 
 const mapStateToProps = ({ session }) => {
-  return { loggedIn: session.logged_in };
-}
+  return { loggedIn: !!session.username };
+};
 
 const mapDispatchToProps = (dispatch) => {
-  return { loginOut: () => dispatch(logOut()) }
+  return { loginOut: () => dispatch(logOut()) };
 };
 
 export default connect(
