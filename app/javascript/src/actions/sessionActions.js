@@ -44,7 +44,7 @@ export const getToken = (email, password) => (dispatch) => {
   let data = new FormData();
   data.append("email", email);
   data.append("password", password);
-  fetch("/auth",
+  fetch("/api/auth",
     {
       method: "POST",
       body: data
