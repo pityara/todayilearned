@@ -2,7 +2,7 @@ module ExceptionHandler
 extend ActiveSupport::Concern
 included do
   rescue_from ActiveRecord::RecordNotFound do |e|
-    json_response({message: e.message}, :not_found)
+    json_response({message: 'Post Not Found'}, :not_found)
   end
 
   rescue_from ActiveModel::UnknownAttributeError do |e|
