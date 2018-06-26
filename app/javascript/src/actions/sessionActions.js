@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-fetch';
 import { LOG_IN_ERROR, LOG_IN_SUCCESS, LOG_OUT } from './actionTypes';
 import { Intent } from '@blueprintjs/core';
+import { fetchSession } from '../utils/CallApiUtil';
 import { AppToaster } from '../containers/AppToaster';
 
 export const loginSuccess = (username, user_id, token) => {
@@ -29,12 +30,10 @@ export const loginError = (message) => {
 };
 
 const fetchSessionData = (token) => (dispatch) => {
-  const options = {headers: { 'Authorization': token } };
-  fetch('/api/auth', options)
-    .then((response) => response.json())
+  fetchSession(token)
     .then((json) => {
-      AppToaster.show({message: `You are succesfully logged in as ${json.email}`, intent: Intent.SUCCESS});
-      dispatch(loginSuccess(json.email, json.id, token))
+      AppToaster.show({ message: `You are successfuly logged in as ${json.email}`, intent: Intent.SUCCESS });
+      dispatch(loginSuccess(json.email, json.id, token));
     });
 };
 

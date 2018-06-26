@@ -6,18 +6,20 @@ import LoginStatusContainer from '../containers/LoginStatusContainer';
 import LoginToolBar from '../containers/LoginToolBar';
 
 const Header = () =>
-  <Navbar className="pt-dark">
-      <NavbarGroup align={Alignment.LEFT}>
-        <Link to="/">
-          <NavbarHeading>Today I Learned</NavbarHeading>
-        </Link>
-        <NavbarDivider />
-      </NavbarGroup>
-      <NavbarGroup align={Alignment.RIGHT}>
-        <LoginStatusContainer />
-        <NavbarDivider />
-        <LoginToolBar />
-      </NavbarGroup>
+  <div className='app-header'>
+    <Navbar className="pt-dark">
+        <NavbarGroup align={Alignment.LEFT}>
+          <Link to="/">
+            <NavbarHeading>Today I Learned</NavbarHeading>
+          </Link>
+          <NavbarDivider />
+        </NavbarGroup>
+        <NavbarGroup align={Alignment.RIGHT}>
+          <LoginStatusContainer />
+          <NavbarDivider />
+          <LoginToolBar />
+        </NavbarGroup>
     </Navbar>
+  </div>
 
 export default Header;

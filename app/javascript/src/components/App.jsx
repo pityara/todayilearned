@@ -3,22 +3,22 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import HomePageContainer from '../containers/HomePageContainer';
 import LogIn from '../containers/LogIn';
+import PostListContainer from '../containers/PostListContainer';
 import Header from './Header';
+import Body from './Body';
 
 export class App extends Component {
   componentWillMount(){
-    const { initAuth } = this.props;
+    const { initAuth, fetchPostsData } = this.props;
     initAuth();
+    fetchPostsData();
   }
   render() {
     return (
       <BrowserRouter>
         <div className="app">
-          <Header/>
-          <Switch>
-            <Route path="/login" component={LogIn} />
-            <Route path="/" component={HomePageContainer} />
-          </Switch>
+          <Header />
+          <Body />
         </div>
       </BrowserRouter>
     );

@@ -1,0 +1,13 @@
+@import '@blueprintjs/core/lib/css/blueprint.css';
+@import './components/home_page.css';
+@import './components/post_list.css';
+@import './components/sidebar.css';
+
+.app-header {
+
+}
+
+.app-body {
+    display: flex;
+    justify-content: space-between;
+}
