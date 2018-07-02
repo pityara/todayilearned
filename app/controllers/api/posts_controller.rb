@@ -8,7 +8,10 @@ class Api::PostsController < ApplicationController
   def show; json_response @post end
 
   def create
-    json_response @current_user.create_new_post(post_params), :created
+    @post = @current_user.create_new_post(post_params)
+    @post ?
+      json_response(@post, :created) :
+      json_response(@post, :unprocessable_entity)
   end
 
   def update

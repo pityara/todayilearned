@@ -12,25 +12,27 @@ const LogInForm = ({ submitAction, history }) => {
     history.push('/');
   };
   return (
-    <form onSubmit={submitForm}>
-        <Label text="Username">
-      <input
-        type="text"
-        ref={(input) => _name = input}
-        placeholder="Type username"
-        autoComplete="username"
-        className="pt-input"/>
-        </Label>
-        <Label text="Password">
-      <input
-        type="password"
-        ref={(input) => _password = input}
-        placeholder="Type password"
-        autoComplete="current-password"
-        className="pt-input"/>
-        </Label>
-      <Button type="submit" icon="key">Log In</Button>
-    </form>
+    <div className="login-form">
+      <form onSubmit={submitForm}>
+          <Label text="Username">
+        <input
+          type="text"
+          ref={(input) => _name = input}
+          placeholder="Type username"
+          autoComplete="username"
+          className="pt-input"/>
+          </Label>
+          <Label text="Password">
+        <input
+          type="password"
+          ref={(input) => _password = input}
+          placeholder="Type password"
+          autoComplete="current-password"
+          className="pt-input"/>
+          </Label>
+        <Button type="submit" icon="key">Log In</Button>
+      </form>
+    </div>
   );
 }
 

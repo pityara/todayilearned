@@ -2,6 +2,8 @@
 @import './components/home_page.css';
 @import './components/post_list.css';
 @import './components/sidebar.css';
+@import './components/login_form.css';
+@import './components/new_post_form.css';
 
 .app-header {
 
@@ -10,4 +12,8 @@
 .app-body {
     display: flex;
     justify-content: space-between;
+}
+
+.content {
+    flex: 1 auto;
 }

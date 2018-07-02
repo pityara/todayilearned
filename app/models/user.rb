@@ -3,7 +3,9 @@ class User < ApplicationRecord
   has_many :posts, foreign_key: "author_id", dependent: :destroy
 
   def create_new_post(params)
-    posts << Post.create(params)
+    post = Post.create(params)
+    posts << post
+    post
   end
 
 end

@@ -8,7 +8,7 @@ import Header from './Header';
 import Body from './Body';
 
 export class App extends Component {
-  componentWillMount(){
+  componentWillMount() {
     const { initAuth, fetchPostsData } = this.props;
     initAuth();
     fetchPostsData();

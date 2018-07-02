@@ -3,8 +3,11 @@ import { Link } from 'react-router-dom';
 
 const Sidebar = () =>
   <div className='sidebar'>
-    <Link to="/">HomePage</Link>
-    <Link to="/posts">Check posts</Link>
+    <ul>
+      <li><Link to="/">HomePage</Link></li>
+      <li><Link to="/posts">Check posts</Link></li>
+      <li><Link to="/posts/new">Create new post</Link></li>
+    </ul>
   </div>
 
 export default Sidebar;
