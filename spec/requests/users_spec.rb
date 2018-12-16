@@ -44,7 +44,7 @@ RSpec.describe User, type: :request do
     context 'when token is correct' do
       before do
         headers = {
-          "Authorization": json["auth_token"]
+          Authorization: json["auth_token"]
         }
         get '/api/auth', headers: headers
       end
@@ -61,7 +61,7 @@ RSpec.describe User, type: :request do
     context 'when token is incorrect' do
       before do
         headers = {
-          'Authorization': 'IncorrectTokenBlahblah'
+          Authorization: 'IncorrectTokenBlahblah'
         }
         get '/api/auth', headers: headers
       end
