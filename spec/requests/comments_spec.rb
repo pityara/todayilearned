@@ -7,28 +7,18 @@ EMPTY_ARRAY_LENGTH = 0.freeze
 RSpec.describe Comment, type: :request, broken: true do
   let(:comment) {create(:comment)}
   let!(:user) {create(:user)}
-  let!(:another_user) {create(:user)}
   let!(:post) {create(:post)}
   let!(:post_without_comments) {create(:post)}
   let!(:comments) {create_list(:comment, POST_COMMENTS, post: post)}
 
-  # before do
-  #   post '/api/auth',
-  #        params: {
-  #            email: user.email,
-  #            password: user.password,
-  #        }
-  #   @token = json['auth_token']
-  # end
-  #
-  # before do
-  #   post '/api/auth',
-  #        params: {
-  #            email: another_user.email,
-  #            password: another_user.password,
-  #        }
-  #   @another_token = json['auth_token']
-  # end
+  before do
+    post '/api/auth',
+         params: {
+             email: user.email,
+             password: user.password,
+         }
+    @token = json['auth_token']
+  end
 
   describe "GET /api/posts/:id/comments" do
     context 'when post has comments' do
