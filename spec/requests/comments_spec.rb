@@ -116,6 +116,46 @@ RSpec.describe Comment, type: :request, broken: true do
     end
   end
 
+  describe 'PUT /api/posts/:id/comments/:id' do
+    let(:valid_attributes) { {
+        text: Faker::Lorem.sentence
+    } }
+    let(:testcomment) { create(:post, { author: user, post: one_post.id }) }
+    context 'when user is author of comment' do
+      before do
+        headers = {
+            Authorization: @token,
+        }
+        put "/api/posts/#{one_post.id}/comments/:id",
+            params: valid_attributes,
+            headers: headers
+      end
+
+      it 'returns status code 202' do
+        expect(response).to have_http_status(202)
+      end
+    end
+
+    context 'when user is not author of comment' do
+      before do
+        headers = {
+            Authorization: @another_token,
+        }
+        put "/api/posts/#{one_post.id}/comments/:id",
+            params: valid_attributes,
+            headers: headers
+      end
+
+      it 'returns correct error message' do
+        expect(json['message']).to eq("Forbidden")
+      end
+
+      it 'returns status code 403' do
+        expect(response).to have_http_status(403)
+      end
+    end
+  end
+
   describe "POST /api/posts/:id/comment" do
     let(:valid_attributes) {{text: Faker::Lorem.sentence}}
     let(:invalid_attributes) {{text: Faker::Lorem.paragraph_by_chars(600)}}
