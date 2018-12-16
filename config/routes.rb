@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   namespace :api do
     get 'auth', to: 'users#show'
     post 'auth', to: 'authentication#authenticate'
-    resources :posts
+    resources :posts do
+      resources :comments
+    end
   end
   get '*path', to: 'welcome#hello'
 end
