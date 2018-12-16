@@ -31,3 +31,4 @@ config/secrets.yml.key
 config/database.yml
 .idea
 .DS_Store
+.env
