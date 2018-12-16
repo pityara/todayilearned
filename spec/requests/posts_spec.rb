@@ -71,7 +71,7 @@ RSpec.describe Post, type: :request do
     context 'when post with correct token' do
       before do
         headers = {
-          'Authorization': @token
+          Authorization: @token
         }
         post '/api/posts',
              params: valid_attributes,
@@ -111,7 +111,7 @@ RSpec.describe Post, type: :request do
     context 'when user is author of post' do
       before do
         headers = {
-          'Authorization': @token,
+          Authorization: @token,
         }
         put "/api/posts/#{posttwo.id}",
             params: valid_attributes,
@@ -130,7 +130,7 @@ RSpec.describe Post, type: :request do
     context 'when user is not author of post' do
       before do
         headers = {
-          'Authorization': @another_token,
+          Authorization: @another_token,
         }
         put "/api/posts/#{posttwo.id}",
             params: valid_attributes,
@@ -152,7 +152,7 @@ RSpec.describe Post, type: :request do
     context 'when user is author of post' do
       before do
         headers = {
-          'Authorization': @token,
+          Authorization: @token,
         }
         delete "/api/posts/#{postthree.id}",
                headers: headers
@@ -165,7 +165,7 @@ RSpec.describe Post, type: :request do
     context 'when user is not author of post' do
       before do
         headers = {
-          'Authorization': @another_token,
+          Authorization: @another_token,
         }
         delete "/api/posts/#{postthree.id}",
                headers: headers
