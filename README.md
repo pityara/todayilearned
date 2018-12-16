@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/pityara/todayilearned.svg?branch=master)](https://travis-ci.org/pityara/todayilearned)
+[![Build Status](https://travis-ci.com/pityara/todayilearned.svg?branch=master)](https://travis-ci.com/pityara/todayilearned)
 # Simple blog todayilearned
 
 Based on technologies - 
