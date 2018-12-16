@@ -84,7 +84,7 @@ RSpec.describe Comment, type: :request, broken: true do
 
   describe "POST /api/posts/:id/comment" do
     let(:valid_attributes) {{text: Faker::Lorem.sentence}}
-    let(:invalid_attributes) {{text: Faker::Lorem.paragraph_by_chars 600}}
+    let(:invalid_attributes) {{text: Faker::Lorem.paragraph_by_chars(600)}}
     context 'when comment attributes is correct' do
       before {post "/api/posts/#{one_post.id}/comment", params: valid_attributes, headers: {Authorization: @token}}
 
