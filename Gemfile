@@ -20,6 +20,7 @@ gem 'jwt'
 gem 'simple_command'
 gem 'dry-initializer'
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'dotenv-rails', groups: [:development, :test]
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
