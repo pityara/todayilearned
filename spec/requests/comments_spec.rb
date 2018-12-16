@@ -7,7 +7,7 @@ EMPTY_ARRAY_LENGTH = 0.freeze
 RSpec.describe Comment, type: :request, broken: true do
   let(:comment) {create(:comment)}
   let!(:user) {create(:user)}
-  let!(:post) {create(:post)}
+  let!(:one_post) {create(:post)}
   let!(:post_without_comments) {create(:post)}
   let!(:comments) {create_list(:comment, POST_COMMENTS, post: post)}
 
@@ -22,7 +22,7 @@ RSpec.describe Comment, type: :request, broken: true do
 
   describe "GET /api/posts/:id/comments" do
     context 'when post has comments' do
-      before {get "/api/posts/#{post.id}/comments"}
+      before {get "/api/posts/#{one_post.id}/comments"}
 
       it 'returns all comments of post as json' do
         expect(json.length).to eq(POST_COMMENTS)
@@ -55,7 +55,7 @@ RSpec.describe Comment, type: :request, broken: true do
 
   describe "GET /api/posts/:id/comments?limit=#{COMMENTS_BY_PAGE}&offset=0" do
     context 'when post has comments' do
-      before {get "/api/posts/#{post.id}/comments?limit=#{COMMENTS_BY_PAGE}&offset=0"}
+      before {get "/api/posts/#{post_one.id}/comments?limit=#{COMMENTS_BY_PAGE}&offset=0"}
 
       it 'returns status code 200' do
         expect(response).to have_http_status(200)
@@ -74,6 +74,40 @@ RSpec.describe Comment, type: :request, broken: true do
 
       it 'returns status code 200' do
         expect(response).to have_http_status(200)
+      end
+    end
+  end
+
+  describe 'DELETE /api/posts/:id' do
+    let(:testcomment) { create(:comment, { author: user, post: one_post }) }
+    context 'when user is author of comment' do
+      before do
+        headers = {
+            Authorization: @token,
+        }
+        delete "/api/posts/#{one_post.id}/comments/#{:testcomment.id}",
+               headers: headers
+      end
+
+      it 'returns status code 204' do
+        expect(response).to have_http_status(204)
+      end
+    end
+    context 'when user is not author of comment' do
+      before do
+        headers = {
+            Authorization: @another_token,
+        }
+        delete "/api/posts/#{one_post.id}/comments/#{:testcomment.id}",
+               headers: headers
+      end
+
+      it 'returns correct error message' do
+        expect(json['message']).to eq("Forbidden")
+      end
+
+      it 'returns status code 403' do
+        expect(response).to have_http_status(403)
       end
     end
   end
